@@ -46,8 +46,8 @@ $databaseEstudiantes = new EstudiantesDB("EstudiantesDB", "Estudiantes");
                                     <a href="index.php?id=<?php echo $row['id']?>" class="btn btn-danger">
                                         <i class="far fa-trash-alt"></i>
                                     </a>
-                                    <a href="./pages/ver-estudiante.php?id=<?php echo $row['id']?>" class="btn btn-danger">
-                                        <i class="far fa-trash-alt"></i>
+                                    <a href="./pages/ver-estudiante.php?id=<?php echo $row['id']?>" class="btn btn-primary">
+                                    <i class="fas fa-eye"></i>
                                     </a>
                                 
                                 </td>

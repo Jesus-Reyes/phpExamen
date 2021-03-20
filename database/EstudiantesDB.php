@@ -74,7 +74,7 @@ class EstudiantesDB{
 
     public function getEstudiante($query){
 
-        $result = mysqli_query($this->con, $sql);
+        $result = mysqli_query($this->con, $query);
 
         if(mysqli_num_rows($result) > 0){
             return $result;

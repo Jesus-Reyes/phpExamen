@@ -5,7 +5,7 @@ require_once('../components/card.php');
 require_once('../components/cardMateriaAgregada.php');
 
 // create instancia DB
-$databaseMaterias = new MateriasDB("Examen", "Materias");
+$databaseMaterias = new MateriasDB("MateriasDB", "Materias");
 
 
 if(isset($_POST['remove'])){

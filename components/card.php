@@ -2,7 +2,6 @@
 
 function card($idMateria, $materia_name, $materia_image){
 
-    //TODO: checar el metodo y hacia a donde los vamos a enviar 
 
     $cardElemen = "
     
