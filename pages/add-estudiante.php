@@ -7,9 +7,29 @@ require_once('../components/cardMateriaAgregada.php');
 // create instancia DB
 $databaseMaterias = new MateriasDB("Examen", "Materias");
 
+
+if(isset($_POST['remove'])){
+    
+    
+    if($_GET['action'] == 'remove'){
+        foreach($_SESSION['materia'] as $key => $value){
+
+            if($value['id_materia'] == $_GET['id']){
+
+                unset($_SESSION['materia'][$key]);
+                echo "<script>alert('La materia fue removida...!')</script>";
+                echo "<script>window.location = 'http://localhost/php_examen/pages/add-estudiante.php'</script>";
+            }
+
+        }
+    }
+
+}
+
 ?>
 
 <?php include("../controllers/agregarMateria.php");?>
+<?php include("../controllers/guardarEstudiante.php");?>
 
 <?php include('../includes/header.php');?>
 
@@ -26,13 +46,13 @@ $databaseMaterias = new MateriasDB("Examen", "Materias");
         <div class="col-md-3 mx-auto">
             <div class="card card-body">
 
-                <form action="save_task.php" method="POST">
+                <form action="http://localhost/php_examen/pages/add-estudiante.php" method="POST">
                     <div class="form-group">
 
-                        <input type="text" name="title" class="form-control" placeholder="Nombre del estudiante" autofocus>
+                        <input type="text" name="nombre" class="form-control" placeholder="Nombre del estudiante" autofocus>
                     </div>
                     <!-- * name = guardar_estudiante -->
-                    <input type="submit" class="btn btn-success btn-block" name="save_task" value="Guardar Estudiante">
+                    <input type="submit" class="btn btn-success btn-block" name="save_estudiante" value="Guardar Estudiante">
 
                 </form>
             
@@ -42,7 +62,6 @@ $databaseMaterias = new MateriasDB("Examen", "Materias");
         <!-- !LLamar a otro componente Materias  agregadas -->
         <div class="col-md-8">
             
-            
                 <?php
                     if(isset($_SESSION['materia'])){
                         $materia_id = array_column($_SESSION['materia'], 'id_materia');
@@ -51,7 +70,7 @@ $databaseMaterias = new MateriasDB("Examen", "Materias");
                     
 
                          while($row = mysqli_fetch_assoc($materias)){
-                            echo $row['id'];
+                            
                             foreach($materia_id as $id){
 
                                 if($row['id'] == $id){
@@ -62,13 +81,9 @@ $databaseMaterias = new MateriasDB("Examen", "Materias");
                     }else{
                         echo "<h3>No hay materias</h3>";
                     }
-                
+
                 ?>    
-            
-         
-                
         </div>
-        
     </div>
 
     <div class="row text-center py-5">
@@ -78,11 +93,7 @@ $databaseMaterias = new MateriasDB("Examen", "Materias");
             while($row = mysqli_fetch_assoc($materias)){
                 card($row['id'], $row['materia_name'], $row['materia_image']);
             }
-        
-        
         ?>
-
-    
     </div>
 
 </div>

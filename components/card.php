@@ -7,7 +7,7 @@ function card($idMateria, $materia_name, $materia_image){
     $cardElemen = "
     
     <div class=\"col-md-3 col-sm-6 my-3 my-md-0\">
-        <form action=\"http://localhost/php_examen/pages/addEstudiante.php\" method=\"post\">
+        <form action=\"http://localhost/php_examen/pages/add-estudiante.php\" method=\"post\">
             <div class=\"card shadow\">
                 <div>
                     <img src=\"$materia_image\" alt=\"Image1\" class=\"img-fluid card-img-top\">

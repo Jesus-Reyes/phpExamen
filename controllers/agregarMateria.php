@@ -11,7 +11,7 @@
             if(in_array($_POST['id_materia'], $item_array_id  )){
 
                 echo "<script>alert('La materia ya esta agregada!')</script>";
-                echo "<script>window.location = 'http://localhost/php_examen/pages/addEstudiante.php'</script>";
+                echo "<script>window.location = 'http://localhost/php_examen/pages/add-estudiante.php'</script>";
             }else{
 
                 $numberElements = count($_SESSION['materia']);
@@ -20,7 +20,7 @@
                 );
 
                 $_SESSION['materia'][$numberElements] = $item_array;
-                print_r($_SESSION['materia']);
+               
 
 
 
@@ -34,7 +34,7 @@
 
             // crear nueva variable de sesion 
             $_SESSION['materia'][0] = $item_array;
-            print_r($_SESSION['materia']);
+          
 
         }
 

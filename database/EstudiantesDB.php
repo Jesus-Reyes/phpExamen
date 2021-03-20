@@ -41,10 +41,11 @@ class EstudiantesDB{
             // Modelo de las base de datos 
             $sql = " CREATE TABLE IF NOT EXISTS $tablename
                             (id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                             materia_1 VARCHAR (25) NOT NULL,
-                             materia_2 VARCHAR (25) NOT NULL,
-                             materia_3 VARCHAR (25) NOT NULL,
-                             materia_4 VARCHAR (25) NOT NULL
+                             name VARCHAR (25) NOT NULL,
+                             Historia VARCHAR (25) NOT NULL,
+                             Programacion VARCHAR (25) NOT NULL,
+                             Matematicas VARCHAR (25) NOT NULL,
+                             Calculo VARCHAR (25) NOT NULL
                              
                             );";
 
@@ -55,6 +56,40 @@ class EstudiantesDB{
         }else{
             return false;
         }
+
+    }
+
+    public function setEstudiante($query){
+
+        $result = mysqli_query($this->con, $query);
+        if(!$result){
+            die("Query failed");
+        }
+        session_unset();
+        // Redireccionar al inicio 
+        header("Location: http://localhost/php_examen/index.php");
+
+
+    }
+
+    public function getEstudiante($query){
+
+        $result = mysqli_query($this->con, $sql);
+
+        if(mysqli_num_rows($result) > 0){
+            return $result;
+        }
+    }
+
+    public function borrarEstudiante($query){
+
+        $result = mysqli_query($this->con, $query);
+        if(!$result){
+            die("Query failed");
+        }
+        echo "<script>alert('Estudiante Eliminado')</script>";
+        header("Location: http://localhost/php_examen/index.php");
+
 
     }
 

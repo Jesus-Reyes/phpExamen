@@ -2,7 +2,7 @@
     function cartElement($materia_image, $materia_name, $idMateria){
         $element = "
         
-        <form action=\"http://localhost/php_examen/pages/addEstudiante.php?action=remove&id=$idMateria\" method=\"post\" class=\"cart-items\">
+        <form action=\"http://localhost/php_examen/pages/add-estudiante.php?action=remove&id=$idMateria\" method=\"post\" class=\"cart-items\">
                         <div class=\"border rounded\">
                             <div class=\"row bg-white\">
                                 <div class=\"col-md-3 pl-0\">
