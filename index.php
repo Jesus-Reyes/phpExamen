@@ -1,4 +1,12 @@
+<?php
 
+require_once('./database/EstudiantesDB.php');
+
+
+// create instancia DB
+$databaseEstudiantes = new EstudiantesDB("Examenen", "Estudiantes");
+
+?>
 <!-- Traer a los estudiantes de otra base de datos -->
 
 <?php include('includes/header.php') ?>
@@ -15,6 +23,14 @@
         </div>
         <!--* Listado de estudiantes -->
         <div class="col-9">
+
+            <?php
+                $estudiantes = $databaseEstudiantes->getEstudiantes();
+
+                echo mysqli_num_rows($estudiantes);
+                
+            
+            ?>
 
         </div>
     </div>
